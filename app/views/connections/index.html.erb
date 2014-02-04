@@ -1,0 +1,14 @@
+<% if user_signed_in? %>
+  <h2>Connections: </h2>
+  <% @connections.each do |connection| %>
+  <strong><%= connection["first_name"] + ' ' + connection["last_name"] %></strong><br>
+  <%= connection["headline"] %><br>
+  <% end %>
+  <% else %>
+  <p>Not signed in</p>
+<% end %>
+
+<h2>Have you talked to
+<% random_connection = @connections.sample %>
+<%= random_connection["first_name"] + ' ' + random_connection["last_name"] + ' ' %>
+lately? </h2>
