@@ -2,6 +2,11 @@
 <%= @linkedin_profile["first_name"] + ' ' + @linkedin_profile["last_name"] %><br>
 <%= @linkedin_profile["headline"] %>
 
+<%= form_for @connection do |form| %>
+  <%= form.submit "Import LinkedIn Connections" %>
+</form><br>
+<% end %>
+
 <% if user_signed_in? %>
   <table class="table">
     <tr>
@@ -11,6 +16,7 @@
       <th>Name</th>
       <th>Headline</th>
       <th>Date to Contact</th>
+      <th></th>
       <th></th>
     </tr>
     <tr>
@@ -28,7 +34,5 @@
   <% end %>
 <% else %>
 <% end %>
-
-<button><%= link_to "Add a Connection to the Contact Queue", new_connection_path %></button>
 
 

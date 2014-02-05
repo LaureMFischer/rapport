@@ -3,9 +3,11 @@ class ConnectionsController <ApplicationController
 
   def index
     @connections = @user.connections.order(:date)
+    @connection = Connection.new
     new_user = LinkedIn::Client.new(ENV["APP_ID"], ENV["APP_SECRET"])
     new_user.authorize_from_access(@user.token, @user.secret)
     @linkedin_profile = new_user.profile
+    @linkedin_connections = new_user.connections.all
   end
 
   def show
@@ -24,9 +26,9 @@ class ConnectionsController <ApplicationController
     new_user.authorize_from_access(@user.token, @user.secret)
     @linkedin_connections = new_user.connections.all
       if @linkedin_connections.nil? == false
-        @linkedin_connections.each do |connection|
-          if connection["first_name"] != "private"
-            @user.connections << Connection.create(first_name: connection["first_name"], last_name: connection["last_name"], headline: connection["headline"], user_id: @user.id)
+        @linkedin_connections.each do |linkedin_connection|
+          if linkedin_connection["first_name"] != "private"
+            @user.connections << Connection.find_or_create_by(first_name: linkedin_connection["first_name"], last_name: linkedin_connection["last_name"], headline: linkedin_connection["headline"], linkedin_id: linkedin_connection["id"], user_id: @user.id)
           else
           end
         end
