@@ -2,7 +2,7 @@ class ConnectionsController <ApplicationController
   before_action :get_user
 
   def index
-    @connections = Connection.order(:date)
+    @connections = @user.connections.order(:date)
     new_user = LinkedIn::Client.new(ENV["APP_ID"], ENV["APP_SECRET"])
     new_user.authorize_from_access(@user.token, @user.secret)
     @linkedin_profile = new_user.profile
@@ -32,7 +32,6 @@ class ConnectionsController <ApplicationController
         end
       else
       end
-      #@user.connections << Connection.create(connection_params)
     redirect_to connections_path
   end
 
@@ -53,11 +52,22 @@ class ConnectionsController <ApplicationController
     end
   end
 
+  def destroy
+    @connection = Connection.find(params[:id])
+    if @connection.destroy
+      flash[:notice] = 'Deleted the connection!'
+      redirect_to connections_path
+    else
+      flash.now[:errors] = @connection.errors.full_messages
+      redirect_to :back
+    end
+  end
+
   private
 
-  #def connection_params
-   # params.require(:connection).permit(:first_name, :last_name, :headline, :date, :user_id)
-  #end
+  def connection_params
+    params.require(:connection).permit(:first_name, :last_name, :headline, :date, :user_id)
+  end
 
   def get_user
     @user = current_user
