@@ -20,7 +20,19 @@ class ConnectionsController <ApplicationController
   end
 
   def create
-    @user.connections << Connection.create(connection_params)
+    new_user = LinkedIn::Client.new(ENV["APP_ID"], ENV["APP_SECRET"])
+    new_user.authorize_from_access(@user.token, @user.secret)
+    @linkedin_connections = new_user.connections.all
+      if @linkedin_connections.nil? == false
+        @linkedin_connections.each do |connection|
+          if connection["first_name"] != "private"
+            @user.connections << Connection.create(first_name: connection["first_name"], last_name: connection["last_name"], headline: connection["headline"], user_id: @user.id)
+          else
+          end
+        end
+      else
+      end
+      #@user.connections << Connection.create(connection_params)
     redirect_to connections_path
   end
 
@@ -43,9 +55,9 @@ class ConnectionsController <ApplicationController
 
   private
 
-  def connection_params
-    params.require(:connection).permit(:first_name, :last_name, :headline, :date, :user_id)
-  end
+  #def connection_params
+   # params.require(:connection).permit(:first_name, :last_name, :headline, :date, :user_id)
+  #end
 
   def get_user
     @user = current_user
