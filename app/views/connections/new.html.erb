@@ -1,39 +1,4 @@
-<%= form_for @connection do |form| %>
-  <%= form.submit "Import LinkedIn Connections" %>
-</form><br>
-<% end %>
 
-<h3>Have you talked to
-<% random_connection = @linkedin_connections.sample %>
-<%= random_connection["first_name"] + ' ' + random_connection["last_name"] + ' ' %>
-lately? </h2>
-
-<% if user_signed_in? %>
-  <table class="table">
-    <tr>
-    <th colspan='4'><br><h3>LinkedIn Contacts</h3></th>
-    </tr>
-    <tr>
-      <th>Name</th>
-      <th>Headline</th>
-    </tr>
-    <tr>
-    <% if @linkedin_connections.nil? == false %>
-      <% @linkedin_connections.each do |connection| %>
-      <% if connection["first_name"] != "private" %>
-      <td><img src="<%= connection["picture_url"] %>" alt="Profile Picture"></td>
-      <td><%= connection["first_name"] + ' ' + connection["last_name"] %></td>
-      <td><%= connection["headline"] %></td>
-      <% @user.connections << Connection.create(first_name: connection["first_name"], last_name: connection["last_name"], headline: connection["headline"]) %>
-      </tr>
-      <% else %>
-      <% end %>
-      <% end %>
-  </table>
-  <% else %>
-  <% end %>
-<% else %>
-<% end %>
 
 
 
