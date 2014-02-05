@@ -4,10 +4,6 @@ class NotesController < ApplicationController
     @notes = @connection.notes.order(:created_at)
   end
 
-  def show
-
-  end
-
   def new
     @note = Note.new
   end
