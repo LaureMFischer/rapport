@@ -6,12 +6,11 @@
 <% if user_signed_in? %>
   <table class="table">
     <tr>
-    <th colspan = '5'><br><h3>Contact Queue</h3></th>
+    <th colspan = '4'><br><h3>Contact Queue</h3></th>
     </tr>
     <tr>
       <th>Name</th>
       <th>Headline</th>
-      <th>Note</th>
       <th>Date to Contact</th>
       <th></th>
     </tr>
@@ -20,7 +19,6 @@
       <% @connections.each do |connection| %>
       <td><%= connection["first_name"] + ' ' + connection["last_name"] %></td>
       <td><%= connection["headline"] %></td>
-      <td><%= connection["note"] %></td>
       <td><%= connection["date"] %></td>
       <td><button><%= link_to "Update", edit_connection_path(connection.id) %></button></td>
       </tr>

@@ -1,0 +1,12 @@
+<%= form_for @note do |form| %>
+  <div>
+    <%= form.label :body %>
+    <%= form.text_area :body %>
+  </div>
+  <div>
+    <%= form.label :date_of_interaction %>
+    <%= form.text_field :date_of_interaction %>
+  </div>
+  <%= form.submit "Update Note" %>
+</form><br>
+<% end %>

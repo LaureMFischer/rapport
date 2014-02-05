@@ -1,0 +1,23 @@
+<% if user_signed_in? %>
+  <table class="table">
+    <tr>
+    <th colspan ='3'><br><h3>Notes</h3></th>
+    </tr>
+    <tr>
+      <th>Note Body</th>
+      <th>Date of Interaction</th>
+      <th></th>
+    </tr>
+    <tr>
+    <% if @notes.nil? == false %>
+      <% @notes.each do |note| %>
+      <td><%= note.body %></td>
+      <td><%= note.date_of_interaction %></td>
+      <td><button><%= link_to "Update", edit_connection_note_path(@connection.id, note.id) %></button></td>
+      </tr>
+      <% end %>
+  </table>
+  <% else %>
+  <% end %>
+<% else %>
+<% end %>
