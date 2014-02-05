@@ -11,22 +11,9 @@
       <th></th>
     </tr>
     <tr>
-    <% @connections.each do |connection| %>
-    <td><%= connection["first_name"] + ' ' + connection["last_name"] %></td>
-    <td><%= connection["headline"] %></td>
-    <td><%= connection["note"] %></td>
-    <td><%= connection["date"] %></td>
-    <td><button><%= link_to "Update", edit_connection_path(connection.id) %></button></td>
     </tr>
+    </table>
+    <% else %>
     <% end %>
-  </table>
-<% else %>
-<% end %>
 
 
-<h3>Have you talked to
-<% random_connection = @connections.sample %>
-<%= random_connection["first_name"] + ' ' + random_connection["last_name"] + ' ' %>
-lately? </h2>
-
-<button><%= link_to "Add a Connection to the Contact Queue", new_connection_path %></button>
