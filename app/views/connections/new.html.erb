@@ -27,7 +27,7 @@ lately? </h2>
 <% if user_signed_in? %>
   <table class="table">
     <tr>
-    <th colspan = '2'><br><h3>LinkedIn Contacts</h3></th>
+    <th colspan = '3'><br><h3>LinkedIn Contacts</h3></th>
     </tr>
     <tr>
       <th>Name</th>
@@ -36,9 +36,13 @@ lately? </h2>
     <tr>
     <% if @linkedin_connections.nil? == false %>
       <% @linkedin_connections.each do |connection| %>
+      <% if connection["first_name"] != "private" %>
+      <td><img src="<%= connection["picture_url"] %>" alt="Profile Picture"></td>
       <td><%= connection["first_name"] + ' ' + connection["last_name"] %></td>
       <td><%= connection["headline"] %></td>
       </tr>
+      <% else %>
+      <% end %>
       <% end %>
   </table>
   <% else %>

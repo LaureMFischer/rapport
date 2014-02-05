@@ -1,4 +1,7 @@
 <% if user_signed_in? %>
+<h3>Connection</h3>
+<%= @connection.first_name + ' ' + @connection.last_name %>
+<button><%= link_to "View Connection", connection_path(@connection.id) %></button>
   <table class="table">
     <tr>
     <th colspan ='3'><br><h3>Notes</h3></th>
@@ -13,7 +16,7 @@
       <% @notes.each do |note| %>
       <td><%= note.body %></td>
       <td><%= note.date_of_interaction %></td>
-      <td><button><%= link_to "Update", edit_connection_note_path(@connection.id, note.id) %></button></td>
+      <td><button><%= link_to "Update", edit_connection_note_path(note.connection_id, note.id) %></button></td>
       </tr>
       <% end %>
   </table>
