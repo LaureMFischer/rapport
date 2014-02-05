@@ -3,6 +3,9 @@ class ConnectionsController <ApplicationController
 
   def index
     @connections = Connection.order(:date)
+    new_user = LinkedIn::Client.new(ENV["APP_ID"], ENV["APP_SECRET"])
+    new_user.authorize_from_access(@user.token, @user.secret)
+    @linkedin_profile = new_user.profile
   end
 
   def show
@@ -11,7 +14,9 @@ class ConnectionsController <ApplicationController
 
   def new
     @connection = Connection.new
-    #@connections = @user.connections.all
+    new_user = LinkedIn::Client.new(ENV["APP_ID"], ENV["APP_SECRET"])
+    new_user.authorize_from_access(@user.token, @user.secret)
+    @linkedin_connections = new_user.connections.all
   end
 
   def create

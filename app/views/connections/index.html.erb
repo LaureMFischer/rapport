@@ -1,3 +1,8 @@
+<h3>LinkedIn Profile</h3>
+<%= @linkedin_profile["first_name"] + ' ' + @linkedin_profile["last_name"] %><br>
+<%= @linkedin_profile["headline"] %>
+<%= @linkedin_profile["industry"] %>
+
 <% if user_signed_in? %>
   <table class="table">
     <tr>
@@ -11,9 +16,21 @@
       <th></th>
     </tr>
     <tr>
-    </tr>
-    </table>
-    <% else %>
-    <% end %>
+    <% if @connections.nil? == false %>
+      <% @connections.each do |connection| %>
+      <td><%= connection["first_name"] + ' ' + connection["last_name"] %></td>
+      <td><%= connection["headline"] %></td>
+      <td><%= connection["note"] %></td>
+      <td><%= connection["date"] %></td>
+      <td><button><%= link_to "Update", edit_connection_path(connection.id) %></button></td>
+      </tr>
+      <% end %>
+  </table>
+  <% else %>
+  <% end %>
+<% else %>
+<% end %>
+
+<button><%= link_to "Add a Connection to the Contact Queue", new_connection_path %></button>
 
 
