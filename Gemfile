@@ -29,9 +29,13 @@ gem 'jbuilder', '~> 1.2'
 
 gem 'omniauth-linkedin'
 
+gem 'pry-rails'
+
 gem 'linkedin'
 
 gem 'devise'
+
+gem 'bootstrap-sass', '~> 3.1.0'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

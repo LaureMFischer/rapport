@@ -1,0 +1,23 @@
+<%= form_for @connection do |form| %>
+  <div>
+    <%= form.label :first_name %>
+    <%= form.text_field :first_name %>
+  </div>
+  <div>
+    <%= form.label :last_name %>
+    <%= form.text_field :last_name %>
+  </div>
+  <div>
+    <%= form.label :headline %>
+    <%= form.text_field :headline %>
+  </div>
+  <div>
+    <%= form.label :note %>
+    <%= form.text_area :note %>
+  </div>
+  <div>
+    <%= form.label 'Date to contact next' %>
+    <%= form.text_area :date %>
+  </div>
+  <%= form.submit "Update" %>
+<% end %>
