@@ -14,7 +14,7 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><%= link_to 'Edit profile', edit_user_registration_path %></li>
+        <li class="active"><%= link_to 'Contact Queue', connections_path %></li>
         <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -24,24 +24,22 @@
   </div><!-- /.container-fluid -->
 </nav>
 
-<h3>LinkedIn Profile</h3>
-<%= @linkedin_profile["first_name"] + ' ' + @linkedin_profile["last_name"] %><br>
-<%= @linkedin_profile["headline"] %>
+<h2><%= @linkedin_profile["first_name"] + ' ' + @linkedin_profile["last_name"] %></h2>
+<h3><%= @linkedin_profile["headline"] %></h3>
 
 <%= form_for @connection do |form| %>
-  <%= form.submit "Import or Refresh LinkedIn Connections" %>
-</form><br>
+  <%= form.submit "Import or Refresh LinkedIn Connections" %><br>
 <% end %>
 
 <% if user_signed_in? %>
   <table class="table">
     <tr>
-    <th colspan = '5'><br><h3>Contact Queue</h3></th>
+    <th colspan = '5'><h3>Contact Queue</h3></th>
     </tr>
     <tr>
       <th>Name</th>
       <th>Headline</th>
-      <th>Date to Contact</th>
+      <th><span class="glyphicon glyphicon-calendar"></span>Date to Contact</th>
       <th></th>
       <th></th>
     </tr>
