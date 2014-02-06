@@ -27,14 +27,11 @@
 <h3>Add a note on an interaction with <%= @connection.first_name + ' ' + @connection.last_name %></h3>
 
 <%= form_for [@connection, @note] do |form| %>
-  <div>
-    <%= form.label "Note" %>
-    <%= form.text_area :body %>
-  </div>
-  <div>
-    <%= form.label :date_of_interaction %>
-    <%= form.text_field :date_of_interaction %>
-  </div>
+  <div class="form-label"><%= form.label "Note" %></div>
+  <div class="form-label"><%= form.text_area :body %></div>
+
+  <div class="form-label"><%= form.label :date_of_interaction %></div>
+  <div class="form-input"><%= form.text_field :date_of_interaction %></div>
+
   <%= form.submit "Add Note" %>
-</form><br>
 <% end %>

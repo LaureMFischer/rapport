@@ -24,22 +24,17 @@
 </nav>
 
 <%= form_for @connection do |form| %>
-  <div>
-    <%= form.label :first_name %>
-    <%= form.text_field :first_name %>
-  </div>
-  <div>
-    <%= form.label :last_name %>
-    <%= form.text_field :last_name %>
-  </div>
-  <div>
-    <%= form.label :headline %>
-    <%= form.text_field :headline %>
-  </div>
-  <div>
-    <%= form.label 'Date to contact next' %>
-    <%= form.text_field :date %>
-  </div>
+  <div class="form-label"><%= form.label :first_name %></div>
+  <div class="form-input"><%= form.text_field :first_name %></div>
+
+  <div class="form-label"><%= form.label :last_name %></div>
+  <div class="form-input"><%= form.text_field :last_name %></div>
+
+  <div class="form-label"><%= form.label :headline %></div>
+  <div class="form-input"><%= form.text_field :headline %></div>
+
+  <div class="form-label"><%= form.label 'Date to contact next' %></div>
+  <div class="form-input"><%= form.text_field :date %></div>
   <%= form.submit "Update" %>
 <% end %>
 
