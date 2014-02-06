@@ -11,31 +11,29 @@
       <a class="navbar-brand" href="#"><em>Rapport</em></a>
     </div>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
         <li class="active"><%= link_to 'Contact Queue', connections_path %></li>
         <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li>Logged in as <strong><%= current_user.email %></strong></li>
+        <li><p class="navbar-text">Logged in as <strong><%= current_user.email %></strong></p></li>
       </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
+    </div>
+  </div>
 </nav>
 
 <h2><%= @linkedin_profile["first_name"] + ' ' + @linkedin_profile["last_name"] %></h2>
 <h3><%= @linkedin_profile["headline"] %></h3>
 
-<%= form_for @connection do |form| %>
-  <%= form.submit "Import or Refresh LinkedIn Connections" %><br>
+<div class="import-button"><%= form_for @connection do |form| %>
+  <%= form.submit "Import or Refresh LinkedIn Connections" %></div>
 <% end %>
 
 <% if user_signed_in? %>
+<div class="panel panel-default">
+  <div class="panel-heading">Contact Queue</div>
   <table class="table">
-    <tr>
-    <th colspan = '5'><h3>Contact Queue</h3></th>
-    </tr>
     <tr>
       <th>Name</th>
       <th>Headline</th>
@@ -49,11 +47,12 @@
       <td><%= connection.first_name + ' ' + connection.last_name %></td>
       <td><%= connection.headline %></td>
       <td><%= connection.date %></td>
-      <td><button><%= link_to "Update", edit_connection_path(connection.id) %></button></td>
-      <td><button><%= link_to "Delete", connection_path(connection.id), method: :delete %></button></td>
+      <td><button type="button"><span class="glyphicon glyphicon-pencil"></span><%= link_to "", edit_connection_path(connection.id) %></button></td>
+      <td><button type="button"><span class="glyphicon glyphicon-trash"></span><%= link_to "", connection_path(connection.id), method: :delete %></button></td>
       </tr>
       <% end %>
   </table>
+  </div>
   <% else %>
   <% end %>
 <% else %>
