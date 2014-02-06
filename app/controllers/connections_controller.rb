@@ -44,7 +44,7 @@ class ConnectionsController <ApplicationController
 
     if @connection.save
       flash[:notice] = 'Updated the connection!'
-      redirect_to @connection
+      redirect_to connection_notes_path(@connection.id)
     else
       flash.now[:errors] = @connection.errors.full_messages
       render :edit
