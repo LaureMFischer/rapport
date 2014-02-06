@@ -23,8 +23,10 @@
   </div>
 </nav>
 
+<div class="profile-info">
 <h2><%= @linkedin_profile["first_name"] + ' ' + @linkedin_profile["last_name"] %></h2>
 <h3><%= @linkedin_profile["headline"] %></h3>
+</div>
 
 <div class="import-button"><%= form_for @connection do |form| %>
   <%= form.submit "Import or Refresh LinkedIn Connections" %></div>
@@ -33,7 +35,7 @@
 <% if user_signed_in? %>
 <div class="panel panel-default">
   <div class="panel-heading">Contact Queue</div>
-  <table class="table">
+  <table class="table table-hover">
     <tr>
       <th>Name</th>
       <th>Headline</th>
