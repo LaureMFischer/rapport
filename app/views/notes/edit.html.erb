@@ -25,14 +25,11 @@
 </nav>
 
 <%= form_for [@connection, @note] do |form| %>
-  <div>
-    <%= form.label :body %>
-    <%= form.text_area :body %>
-  </div>
-  <div>
-    <%= form.label :date_of_interaction %>
-    <%= form.text_field :date_of_interaction %>
-  </div>
+  <div class="form-label"><%= form.label 'Note' %></div>
+  <div class="form-input"><%= form.text_area :body %></div>
+
+  <div class="form-label"><%= form.label :date_of_interaction %></div>
+  <div class="form-input"><%= form.text_field :date_of_interaction %></div>
+
   <%= form.submit "Update Note" %>
-</form><br>
 <% end %>
