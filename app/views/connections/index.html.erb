@@ -46,11 +46,14 @@
     <tr>
     <% if @connections.nil? == false %>
       <% @connections.each do |connection| %>
-      <td><%= connection.first_name + ' ' + connection.last_name %></td>
+      <% first = connection.first_name %>
+      <% last = connection.last_name %>
+      <% full_name = first + ' ' + last %>
+      <td><%= link_to full_name, connection_notes_path(connection.id) %></td>
       <td><%= connection.headline %></td>
       <td><%= connection.date %></td>
-      <td><button type="button"><span class="glyphicon glyphicon-pencil"></span><%= link_to "", edit_connection_path(connection.id) %></button></td>
-      <td><button type="button"><span class="glyphicon glyphicon-trash"></span><%= link_to "", connection_path(connection.id), method: :delete %></button></td>
+      <td><button type="button"><span class="glyphicon glyphicon-pencil"></span><%= link_to "Edit", edit_connection_path(connection.id) %></button></td>
+      <td><button type="button"><span class="glyphicon glyphicon-trash"></span><%= link_to "Delete", connection_path(connection.id), method: :delete %></button></td>
       </tr>
       <% end %>
   </table>
