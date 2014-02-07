@@ -31,6 +31,7 @@ a.hover {
 
 .panel-heading {
   font-size: 30px;
+  background-color: white;
 }
 
 .navbar-text.brand {
@@ -50,4 +51,19 @@ a.hover {
   margin-bottom: 15px;
 }
 
+.new-button.btn-sm {
+  margin-left: 20px;
+  background-color: white;
+}
+
+.landing-page {
+  background-image: url(http://www.inc.com/uploaded_files/image/970x450/happy-hour_pan_24534.jpg);
+  background-position: 50% 50% 50% 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.add-a-note {
+  margin-top: 15px;
+}
 

@@ -30,7 +30,7 @@
   <div class="form-label"><%= form.label :last_name %></div>
   <div class="form-input"><%= form.text_field :last_name %></div>
 
-  <div class="form-label"><%= form.label :headline %></div>
+  <div class="form-label"><%= form.label 'Current Position' %></div>
   <div class="form-input"><%= form.text_field :headline %></div>
 
   <div class="form-label"><%= form.label 'Date to contact next' %></div>
@@ -38,4 +38,4 @@
   <%= form.submit "Update" %>
 <% end %>
 
-<button><%= link_to "Add a Note", new_connection_note_path(@connection.id) %></button>
+<button class="add-a-note"><%= link_to "Add a Note to this Contact", new_connection_note_path(@connection.id) %></button>

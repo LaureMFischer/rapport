@@ -1,3 +1,4 @@
+
 <div class="jumbotron">
   <h1 class="brand"><em>Rapport</em></h1>
   <p>Enhance the value of your LinkedIn network by actively managing your relationships with your contacts. Add notes on your latest interactions, and make a plan to meet up again soon.
@@ -7,13 +8,13 @@
 
 <%- if devise_mapping.omniauthable? %>
   <%- resource_class.omniauth_providers.each do |provider| %>
-    <button type="button" class="btn btn-default btn-lg"><%= link_to "Sign in with #{provider.to_s.titleize}", omniauth_authorize_path(resource_name, provider) %></button><br />
+  <p class="text-center">
+    <button type="button" class="btn btn-default btn-sm"><%= link_to "Sign in with #{provider.to_s.titleize}", omniauth_authorize_path(resource_name, provider) %></button></p><br />
   <% end -%>
 <% end -%>
 
 <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-  <div><%= f.label :email %><br />
+  <div class="text-center"><%= f.label :email %><br />
   <%= f.email_field :email, :autofocus => true %><%= f.submit "Submit" %></div>
 <% end %>
-
 

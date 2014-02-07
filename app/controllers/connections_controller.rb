@@ -10,10 +10,6 @@ class ConnectionsController <ApplicationController
     @linkedin_connections = new_user.connections.all
   end
 
-  def show
-    @connection = Connection.find(params[:id])
-  end
-
   def new
     @connection = Connection.new
   end
