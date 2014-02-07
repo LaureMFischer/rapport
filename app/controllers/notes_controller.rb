@@ -1,5 +1,6 @@
 class NotesController < ApplicationController
   before_action :get_connection
+
   def index
     @notes = @connection.notes.order(:created_at)
   end

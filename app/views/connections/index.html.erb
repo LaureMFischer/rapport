@@ -1,6 +1,5 @@
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
         <span class="sr-only">Toggle navigation</span>
@@ -46,15 +45,15 @@
     <tr>
     <% if @connections.nil? == false %>
       <% @connections.each do |connection| %>
-      <% first = connection.first_name %>
-      <% last = connection.last_name %>
-      <% full_name = first + ' ' + last %>
-      <td><%= link_to full_name, connection_notes_path(connection.id) %></td>
-      <td><%= connection.headline %></td>
-      <td><%= connection.date %></td>
-      <td><button type="button"><span class="glyphicon glyphicon-pencil"></span><%= link_to " Edit Date", edit_connection_path(connection.id) %></button></td>
-      <td><button type="button"><span class="glyphicon glyphicon-trash"></span><%= link_to "Delete", connection_path(connection.id), method: :delete %></button></td>
-      </tr>
+        <% first = connection.first_name %>
+        <% last = connection.last_name %>
+        <% full_name = first + ' ' + last %>
+        <td><%= link_to full_name, connection_notes_path(connection.id) %></td>
+        <td><%= connection.headline %></td>
+        <td><%= connection.date %></td>
+        <td><button type="button"><span class="glyphicon glyphicon-pencil"></span><%= link_to " Edit Date", edit_connection_path(connection.id) %></button></td>
+        <td><button type="button"><span class="glyphicon glyphicon-trash"></span><%= link_to "Delete", connection_path(connection.id), method: :delete %></button></td>
+        </tr>
       <% end %>
   </table>
   </div>
