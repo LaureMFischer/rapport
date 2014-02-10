@@ -34,6 +34,12 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'pry-rails'
+  gem 'rspec-rails', '~> 3.0.0.beta'
+  gem 'database_cleaner'
+  gem 'shoulda-matchers'
+  gem 'guard-rspec', require: false
 end
+
+gem 'simplecov', require: false, group: :test
 
 gem 'rails_12factor'
