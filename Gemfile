@@ -42,6 +42,8 @@ group :development do
   gem 'guard-rspec', require: false
 end
 
+gem "bullet", :group => "development"
+
 gem 'simplecov', require: false, group: :test
 
 gem 'rails_12factor'
