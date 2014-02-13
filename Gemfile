@@ -26,6 +26,8 @@ gem 'devise'
 
 gem 'bootstrap-sass', '~> 3.1.0'
 
+gem 'newrelic_rpm'
+
 group :doc do
   gem 'sdoc', require: false
 end
