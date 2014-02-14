@@ -42,6 +42,10 @@ group :development do
   gem 'guard-rspec', require: false
 end
 
+group :development, :test do
+  gem 'shoulda-matchers'
+end
+
 gem "bullet", :group => "development"
 
 gem 'simplecov', require: false, group: :test

@@ -16,4 +16,9 @@ describe Connection do
   it "is invalid without a user id" do
     expect(Connection.create(first_name: "David", last_name: "Fisher", headline: "Programmer")).to_not be_valid
   end
+
+  describe "associations" do
+    it { should belong_to :user }
+    it { should have_many :notes }
+  end
 end
