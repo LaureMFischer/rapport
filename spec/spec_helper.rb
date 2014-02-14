@@ -23,6 +23,8 @@ ActiveRecord::Migration.check_pending! if defined?(ActiveRecord::Migration)
 
 RSpec.configure do |config|
 
+  config.include IntegrationSpecHelper, :type => :request
+
   config.before(:suite) do
     DatabaseCleaner.clean_with(:truncation)
   end
@@ -68,4 +70,13 @@ RSpec.configure do |config|
   # the seed, which is printed after each run.
   #     --seed 1234
   config.order = "random"
+
 end
+
+  Capybara.default_host = 'http://example.org'
+
+  OmniAuth.config.test_mode = true
+  OmniAuth.config.add_mock(:linkedin, {
+    :uid => '12345',
+    :nickname => 'zapnap'
+  })
