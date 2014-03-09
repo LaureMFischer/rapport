@@ -28,7 +28,7 @@ class User < ActiveRecord::Base
     super && provider.blank?
   end
 
-  #def email_required?
-    #super && provider.blank?
-  #end
+  def email_required?
+    super && provider.blank?
+  end
 end

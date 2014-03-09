@@ -11,8 +11,3 @@
     <button type="button" class="btn btn-default btn-lg"><%= link_to "Sign in with #{provider.to_s.titleize}", omniauth_authorize_path(resource_name, provider) %></button></p><br/>
   <% end -%>
 <% end -%>
-
-<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-  <div class="text-center"><%= f.label :email %>
-  <%= f.email_field :email, :autofocus => true %><%= f.submit "Submit" %></div>
-<% end %>

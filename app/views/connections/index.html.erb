@@ -16,7 +16,7 @@
         <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><p class="navbar-text">Logged in as <strong><%= current_user.email %></strong></p></li>
+        <li><p class="navbar-text">Logged in as <strong><%= @linkedin_profile["first_name"] + ' ' + @linkedin_profile["last_name"] %></strong></p></li>
       </ul>
     </div>
   </div>
