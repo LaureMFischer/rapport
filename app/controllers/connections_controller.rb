@@ -1,6 +1,6 @@
 class ConnectionsController <ApplicationController
   before_action :get_connection, only: [:edit, :update, :destroy]
-  before_action :new_linkedin_client, only: [:index, :create]
+  before_action :new_linkedin_client, only: [:index, :create, :edit]
 
   def index
     @connections = current_user.connections.order(:last_name)
@@ -26,6 +26,7 @@ class ConnectionsController <ApplicationController
   end
 
   def edit
+    @linkedin_profile = @new_user.profile
   end
 
   def update
