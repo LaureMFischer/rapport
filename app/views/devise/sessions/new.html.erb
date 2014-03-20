@@ -1,13 +1,15 @@
-<div class="jumbotron">
-  <h1 class="brand"><em>Rapport</em></h1>
-  <p>Enhance the value of your LinkedIn network by actively managing your relationships with your contacts. Add notes on your latest interactions, and make a plan to meet up again soon.
+<div class="container home">
 
-  Don't just accumulate connections - build <span class="brand">rapport</span>.</p>
+<h1 class="brand"><em>Rapport</em></h1>
+<h3 id="tagline">Enhance the value of your LinkedIn network by actively managing your relationships with your contacts. Add notes on your latest interactions, and make a plan to meet up again soon.
+Don't just accumulate connections - build <span class="brand">rapport</span>.</h3>
+
+
+<% if devise_mapping.omniauthable? %>
+  <% resource_class.omniauth_providers.each do |provider| %>
+  <p class="text-center">
+    <a class="btn btn-primary btn-lg home" href="<%= omniauth_authorize_path(resource_name, provider) %>" role="button">Sign in with LinkedIn</a></p>
+  <% end %>
+<% end %>
 </div>
 
-<%- if devise_mapping.omniauthable? %>
-  <%- resource_class.omniauth_providers.each do |provider| %>
-  <p class="text-center">
-    <button type="button" class="btn btn-default btn-lg"><%= link_to "Sign in with #{provider.to_s.titleize}", omniauth_authorize_path(resource_name, provider) %></button></p><br/>
-  <% end -%>
-<% end -%>

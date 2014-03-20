@@ -44,6 +44,7 @@ a.hover {
 
 .brand {
   font-family: 'Lemon', cursive;
+  text-align: center;
 }
 
 .form-label {
@@ -75,6 +76,15 @@ a {
   }
 }
 
-.jumbotron {
-  background-color: #90EE90;
+.container.home {
+  width: 750px;
+}
+
+.btn.btn-default.btn-lg.home {
+  width: 300px;
+}
+
+#tagline {
+  text-align: center;
+  margin: 30px;
 }
