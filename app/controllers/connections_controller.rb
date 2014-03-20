@@ -1,11 +1,11 @@
 class ConnectionsController <ApplicationController
   before_action :get_connection, only: [:edit, :update, :destroy]
   before_action :new_linkedin_client, only: [:index, :create, :edit]
+  before_action :get_profile, only: [:index, :edit]
 
   def index
     @connections = current_user.connections.order(:last_name)
     @connection = Connection.new
-    @linkedin_profile = @new_user.profile
   end
 
   def new
@@ -26,7 +26,6 @@ class ConnectionsController <ApplicationController
   end
 
   def edit
-    @linkedin_profile = @new_user.profile
   end
 
   def update
@@ -65,5 +64,9 @@ class ConnectionsController <ApplicationController
     @new_user = LinkedIn::Client.new(ENV["APP_ID"], ENV["APP_SECRET"])
     @new_user.authorize_from_access(current_user.token, current_user.secret)
     @linkedin_connections = @new_user.connections.all
+  end
+
+  def get_profile
+    @linkedin_profile = @new_user.profile
   end
 end
