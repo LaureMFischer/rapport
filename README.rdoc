@@ -1,28 +1,5 @@
-== README
+== Rapport
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Rapport is an app that I built in five days, for my first project in General Assembly's Web Development Immersive course.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+I was inspired to build this app when I realized that I had accumulated a lot of contacts on LinkedIn after being in the consulting world for a few years, and yet there were only a handful of those connections that I communicated with on a regular basis. While LinkedIn has lots of great features that allow you to find professional contacts and see what they're up to, there isn't much that encourages users to actually develop relationships with those contacts. So I built Rapport to try to solve this problem. Users can import their connections from LinkedIn, make notes on the last time they spoke with that person, and make a plan to contact them again. The goal is to encourage users to consciously stay in touch with their connections - relationships require work, and Rapport seeks to make that work a little easier.
