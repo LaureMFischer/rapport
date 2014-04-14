@@ -28,6 +28,8 @@ gem 'bootstrap-sass', '~> 3.1.0'
 
 gem 'newrelic_rpm'
 
+gem 'haml-rails'
+
 gem 'simplecov', require: false, group: :test
 
 group :doc do
