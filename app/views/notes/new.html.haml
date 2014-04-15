@@ -18,8 +18,8 @@
         %li
           %p.navbar-text Logged in
 
-%h3 Add a note on an interaction with
-  = @connection.first_name + ' ' + @connection.last_name
+%h3
+  = "Add a note on an interaction with " + @connection.first_name + ' ' + @connection.last_name
 
 = form_for [@connection, @note] do |form|
   .form-label
