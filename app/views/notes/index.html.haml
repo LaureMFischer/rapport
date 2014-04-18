@@ -1,0 +1,42 @@
+%nav.navbar.navbar-default.navbar-fixed-top{ :role => 'navigation' }
+  .container-fluid
+    .navbar-header
+      %button.navbar-toggle{ :type => "button", :data => {:toggle => "collapse", :target => "#bs-example-navbar-collapse-1"}}
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      %p.navbar-text.brand <em>Rapport</em>
+
+    .collapse.navbar-collapse#bs-example-navbar-collapse-1
+      %ul.nav.navbar-nav
+        %li= link_to 'Contact Queue', connections_path
+        %li= link_to "Logout", destroy_user_session_path, method: :delete
+
+      %ul.nav.navbar-nav.navbar-right
+        %li
+          %p.navbar-text Logged in
+
+- if user_signed_in?
+%h2= @connection.first_name + ' ' + @connection.last_name
+%h3= @connection.headline
+.panel.panel-success
+  .panel-heading Notes
+    %button.new-button.btn-sm{ :type => "button" }
+      = link_to "Add New Note", new_connection_note_path(@connection.id)
+  %table.table.table-hover
+    %tr
+      %th Note
+      %th Date of Interaction
+      %th
+    %tr
+    - if @notes.nil? == false
+      - @notes.each do |note|
+      %td= note.body
+      %td= note.date_of_interaction
+      %td
+        %button{ :type => "button" }
+          %span.glyphicon.glyphicon-pencil
+            = link_to " Edit", edit_connection_note_path(note.connection_id, note.id)
+  - else
+- else
