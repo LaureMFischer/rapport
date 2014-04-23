@@ -17,11 +17,11 @@
         %li
           %p.navbar-text Logged in
 
-- if user_signed_in?
 %h2= @connection.first_name + ' ' + @connection.last_name
 %h3= @connection.headline
 .panel.panel-success
-  .panel-heading Notes
+  .panel-heading
+    Notes
     %button.new-button.btn-sm{ :type => "button" }
       = link_to "Add New Note", new_connection_note_path(@connection.id)
   %table.table.table-hover
@@ -32,11 +32,10 @@
     %tr
     - if @notes.nil? == false
       - @notes.each do |note|
-      %td= note.body
-      %td= note.date_of_interaction
-      %td
-        %button{ :type => "button" }
-          %span.glyphicon.glyphicon-pencil
-            = link_to " Edit", edit_connection_note_path(note.connection_id, note.id)
-  - else
-- else
+        %td= note.body
+        %td= note.date_of_interaction
+        %td
+          %button{ :type => "button" }
+            %span.glyphicon.glyphicon-pencil
+              = link_to " Edit", edit_connection_note_path(note.connection_id, note.id)
+

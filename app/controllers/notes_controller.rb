@@ -43,13 +43,13 @@ class NotesController < ApplicationController
     @connection = Connection.find(params[:connection_id])
   end
 
-  def new_linkedin_client
+  def new_linkedin_client # May not be needed, based on latest view update
     @new_user = LinkedIn::Client.new(ENV["APP_ID"], ENV["APP_SECRET"])
     @new_user.authorize_from_access(current_user.token, current_user.secret)
     @linkedin_connections = @new_user.connections.all
   end
 
-  def get_profile
+  def get_profile # May not be needed, based on latest view update
     @linkedin_profile = @new_user.profile
   end
 end
